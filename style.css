@@ -1,0 +1,399 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+
+body {
+    background: linear-gradient(135deg, #f0f4ff 0%, #fff0f5 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    padding: 40px 20px;
+    color: #333;
+}
+
+.app-container {
+    width: 100%;
+    max-width: 700px;
+}
+
+/* Header Styles */
+header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.top-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 10px;
+}
+
+.logo-box {
+    background: linear-gradient(135deg, #6366f1, #a855f7);
+    color: white;
+    width: 45px;
+    height: 45px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+}
+
+.top-header h1 {
+    font-size: 2rem;
+    color: #1e293b;
+    font-weight: 700;
+}
+
+header p {
+    color: #64748b;
+    font-size: 0.95rem;
+}
+
+/* Common Card Style */
+.stats-card, .filters-container, .task-card {
+    background: white;
+    border-radius: 16px;
+    padding: 20px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+    margin-bottom: 20px;
+}
+
+/* Stats Section */
+.stats-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 25px 20px;
+}
+
+.stat-item {
+    text-align: center;
+}
+
+.stat-item h2 {
+    font-size: 1.5rem;
+    margin-bottom: 5px;
+}
+
+.stat-item p {
+    color: #64748b;
+    font-size: 0.85rem;
+}
+
+.flex-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-align: left;
+}
+
+.divider {
+    width: 1px;
+    height: 40px;
+    background-color: #e2e8f0;
+}
+
+.text-blue { color: #3b82f6; }
+.text-green { color: #10b981; }
+.text-purple { color: #8b5cf6; }
+
+/* Add Task Button */
+.add-task-btn {
+    width: 100%;
+    background: linear-gradient(to right, #3b82f6, #8b5cf6);
+    color: white;
+    border: none;
+    padding: 18px;
+    border-radius: 12px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    margin-bottom: 25px;
+    box-shadow: 0 4px 15px rgba(99, 102, 241, 0.3);
+    transition: transform 0.2s ease;
+}
+
+.add-task-btn:hover {
+    transform: translateY(-2px);
+}
+
+/* Filters Section */
+.filters-container {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 15px 20px;
+}
+
+.search-box {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border: 1px solid #e2e8f0;
+    padding: 10px 15px;
+    border-radius: 10px;
+    color: #94a3b8;
+}
+
+.search-box input {
+    border: none;
+    outline: none;
+    width: 100%;
+    font-size: 0.9rem;
+}
+
+.filter-icon {
+    color: #64748b;
+    cursor: pointer;
+}
+
+.filter-tabs {
+    display: flex;
+    gap: 10px;
+}
+
+.tab {
+    border: none;
+    background: #f8fafc;
+    padding: 10px 15px;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: #475569;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.active-tab {
+    background: #3b82f6;
+    color: white;
+}
+
+.badge {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 2px 6px;
+    border-radius: 50%;
+    font-size: 0.75rem;
+}
+
+.light-badge {
+    background: #e2e8f0;
+    color: #475569;
+}
+
+/* Task Card */
+.task-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.task-title-group {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    width: calc(100% - 40px); /* Delete button ke liye jagah bacha kar rakhega */
+}
+
+.task-title-group h3 {
+    font-size: 1.1rem;
+    color: #1e293b;
+    font-weight: 600;
+    overflow-wrap: break-word; /* Lambe text ko zabardasti agli line mein bhej dega */
+    word-break: break-word;
+    width: 100%;
+}
+
+.radio-circle {
+    width: 20px;
+    height: 20px;
+    border: 2px solid #cbd5e1;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.delete-btn {
+    background: none;
+    border: none;
+    color: #94a3b8;
+    font-size: 1.1rem;
+    cursor: pointer;
+}
+
+.delete-btn:hover {
+    color: #ef4444;
+}
+
+.task-tags {
+    display: flex;
+    gap: 10px;
+    padding-left: 35px;
+    flex-wrap: wrap;
+}
+
+.tag {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+
+.dot {
+    width: 6px;
+    height: 6px;
+    background: #ef4444;
+    border-radius: 50%;
+}
+.add-task-section {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.task-input-field {
+    width: 100%;
+    padding: 15px 20px;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    font-size: 1rem;
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+.task-input-field:focus {
+    border-color: #8b5cf6; /* Focus hone par purple border */
+}
+
+/* Update add-task-btn margin to prevent double spacing */
+.add-task-btn {
+    margin-bottom: 0; 
+}
+
+.tag-red { background: #fee2e2; color: #dc2626; }
+.tag-purple { background: #f3e8ff; color: #9333ea; }
+.tag-blue { background: #dbeafe; color: #2563eb; }
+.tag-grey { background: #f1f5f9; color: #64748b; }
+
+/* =========================================
+   Responsive Design (Mobile Screens) 
+   ========================================= */
+@media screen and (max-width: 650px) {
+    body {
+        padding: 20px 10px;
+    }
+
+    .top-header h1 {
+        font-size: 1.5rem; /* Heading thodi choti kar di */
+    }
+
+    header p {
+        font-size: 0.85rem;
+    }
+
+    /* Stats Card Mobile Layout (2x2 Grid) */
+    .stats-card {
+        display: grid;
+        grid-template-columns: 1fr 1fr; /* 2 columns banayenge */
+        gap: 20px;
+        padding: 20px;
+    }
+
+    .divider {
+        display: none; /* Mobile par line dividers hide kar denge taaki jagah bache */
+    }
+
+    .stat-item.flex-row {
+        justify-content: center; /* Progress bar ko center karne ke liye */
+    }
+
+    /* Filters Mobile Layout */
+    .filters-container {
+        flex-direction: column; /* Items ko ek ke neeche ek layega */
+        align-items: stretch;
+    }
+
+    .search-box {
+        width: 100%;
+    }
+
+    .filter-tabs {
+        width: 100%;
+        justify-content: space-between;
+        flex-wrap: wrap; /* Agar tab zyada hon toh neeche shift ho jayen */
+    }
+
+    .tab {
+        flex: 1; /* Tabs aapas mein barabar jagah lein */
+        justify-content: center;
+        padding: 8px;
+        font-size: 0.8rem;
+    }
+
+    /* Task Card Mobile Layout */
+    .task-tags {
+        padding-left: 0; /* Mobile par tags shuru se start honge */
+        margin-top: 10px;
+    }
+}
+
+/* =========================================
+   Task Completed State
+   ========================================= */
+.task-card.completed .task-title-group h3 {
+    text-decoration: line-through; /* Title par line-through */
+    color: #94a3b8; /* Text color thoda fade kar diya */
+}
+
+.task-card.completed .radio-circle {
+    background-color: #10b981; /* Circle ko green fill kar dega */
+    border-color: #10b981;
+}
+
+.task-card.completed {
+    background-color: #f8fafc; /* Card ka background thoda dim kar dega */
+    opacity: 0.8;
+}
+/* =========================================
+   Empty State Styles
+   ========================================= */
+.empty-state {
+    text-align: center;
+    padding: 40px 20px;
+    color: #64748b; /* Fade grey text */
+    background: white;
+    border-radius: 16px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.empty-state p {
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.empty-state i {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    color: #cbd5e1;
+}

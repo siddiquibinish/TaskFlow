@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TaskFlow</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+    <div class="app-container">
+        <!-- Header Section -->
+        <header>
+            <div class="top-header">
+                <div class="logo-box">
+                    <i class="fa-solid fa-check-to-slot"></i>
+                </div>
+                <h1>Daily Task Manager</h1>
+            </div>
+            <p>Stay organized and productive with your daily tasks</p>
+        </header>
+
+        <!-- Stats Section -->
+        <section class="stats-card">
+            <div class="stat-item">
+                <h2 id="totalTasks">1</h2>
+                <p>Total Tasks</p>
+            </div>
+            <div class="divider"></div>
+            <div class="stat-item">
+                <h2 id="activeTasks" class="text-blue">1</h2>
+                <p>Active</p>
+            </div>
+            <div class="divider"></div>
+            <div class="stat-item">
+                <h2 id="completedTasks" class="text-green">0</h2>
+                <p>Completed</p>
+            </div>
+            <div class="divider"></div>
+            <div class="stat-item flex-row">
+                <i class="fa-solid fa-arrow-trend-up text-purple"></i>
+                <div>
+                    <h2 id="progressPercentage" class="text-purple">0%</h2>
+                    <p>Progress</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Add Task Section -->
+        <section class="add-task-section">
+            <input type="text" id="taskinput" class="task-input-field" placeholder="What needs to be done?">
+            <button class="add-task-btn">
+                <i class="fa-solid fa-plus"></i> Add New Task
+            </button>
+        </section>
+
+        <!-- Filters Section -->
+        <section class="filters-container">
+            <div class="search-box">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input type="text" placeholder="Search tasks...">
+            </div>
+            <div class="filter-icon">
+                <i class="fa-solid fa-filter"></i>
+            </div>
+            <div class="filter-tabs">
+                <button class="tab active-tab" data-filter="all">
+                    All Tasks <span class="badge" id="badge-all">0</span>
+                </button>
+
+                <button class="tab" data-filter="active">
+                    Active <span class="badge" id="badge-active">0</span>
+                </button>
+
+                <button class="tab" data-filter="completed">
+                    Completed
+                </button>
+            </div>
+        </section>
+
+        <!-- Task List Section -->
+        <section class="tasks-list">
+            <div class="task-card">
+                <div class="task-header">
+                    <div class="task-title-group">
+                        <div class="radio-circle"></div>
+                        <h3>Revise Java OOP Concepts</h3>
+                    </div>
+                    <button class="delete-btn"><i class="fa-regular fa-trash-can"></i></button>
+                </div>
+                <div class="task-tags">
+                    <span class="tag tag-red"><span class="dot"></span> High Priority</span>
+                    <span class="tag tag-purple"><i class="fa-solid fa-tag"></i> Work</span>
+                    <span class="tag tag-blue"><i class="fa-regular fa-calendar"></i> Tomorrow</span>
+                    <span class="tag tag-grey"><i class="fa-regular fa-clock"></i> 6/30/2025</span>
+                </div>
+            </div>
+        </section>
+    </div>
+
+</body>
+<script src="script.js"></script>
+
+</html>
