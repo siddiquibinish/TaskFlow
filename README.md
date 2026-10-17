@@ -32,6 +32,20 @@ During development, I encountered an issue where dashboard statistics displayed 
 ### 4. Learning Outcomes
 This project significantly strengthened my understanding of state-driven UI and separating data logic from DOM manipulation before moving on to frameworks like React. I also gained practical experience in web accessibility (implementing ARIA attributes and keyboard navigation) and security (preventing XSS attacks by rendering inputs as text content).
 
+## 5. Screenshots
+
+### Main Dashboard
+![Main Dashboard](./Screenshots/main-dashboard.png)
+*A complete view of the TaskFlow dashboard with real-time statistics.*
+
+### Task Management
+![Task Management](./Screenshots/task-management.png)
+*Adding, completing, and deleting tasks effortlessly.*
+
+### Search and Filter
+![Search and Filter](./Screenshots/search-filter.png)
+*Filtering tasks by status and searching dynamically.*
+
 ## Links
 - **Live Demo:** https://siddiquibinish.github.io/TaskFlow
 - **Repository:** https://github.com/siddiquibinish/TaskFlow
