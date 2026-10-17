@@ -397,3 +397,56 @@ header p {
     margin-bottom: 10px;
     color: #cbd5e1;
 }
+
+.task-actions {
+    display: flex;
+    gap: 10px; /* Ya apni pasand ke hisaab se space */
+    align-items: center;
+}
+
+/* --- Action Buttons (Edit & Delete) Styling --- */
+.task-actions {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+.task-actions button {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 1.1rem;
+    color: #94a3b8; /* Soft gray color */
+    padding: 6px;
+    border-radius: 6px;
+    transition: all 0.2s ease;
+}
+
+.task-actions .edit-btn:hover {
+    color: #3b82f6; /* Modern Blue */
+    background: #eff6ff;
+}
+
+.task-actions .delete-btn:hover {
+    color: #ef4444; /* Modern Red */
+    background: #fef2f2;
+}
+
+/* --- Edit Mode Input Styling --- */
+.edit-task-input {
+    flex: 1;
+    font-size: 1rem;
+    font-family: inherit;
+    padding: 6px 10px;
+    border: 2px solid #cbd5e1;
+    border-radius: 6px;
+    outline: none;
+    background: #fff;
+    color: var(--text-color);
+    margin-left: 12px; /* Radio circle se thoda fasla */
+    transition: border-color 0.2s ease;
+}
+
+.edit-task-input:focus {
+    border-color: #3b82f6; /* Focus par blue border */
+}

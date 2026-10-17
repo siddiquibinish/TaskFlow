@@ -45,8 +45,9 @@ function renderTasks() {
     });
 
     // --- EMPTY STATE LOGIC ---
-   if (tasks.length === 0) {
-        // Situation 1: Koi task add nahi hua
+   // --- EMPTY STATE LOGIC ---
+    if (tasks.length === 0) {
+        // Situation 1: Koi task add nahi hua (Purana empty state wapas laga diya)
         tasksList.innerHTML = `
             <div class="empty-state">
                 <i class="fa-regular fa-clipboard"></i>
@@ -62,7 +63,7 @@ function renderTasks() {
             </div>
         `;
     } else {
-        // Normal Situation: Tasks render karein (Aapka accessibility wala code)
+        // Normal Situation: Tasks render karein (Yahan naya Edit button wala UI aayega)
         filteredTasks.forEach(task => {
             const taskCard = document.createElement('div');
 
@@ -79,9 +80,15 @@ function renderTasks() {
                         <h3 class="task-title"></h3>
                     </div>
 
-                    <button class="delete-btn" aria-label="Delete task">
-                        <i class="fa-regular fa-trash-can"></i>
-                    </button>
+                    <!-- Naya Buttons Wrapper -->
+                    <div class="task-actions">
+                        <button class="edit-btn" aria-label="Edit task">
+                            <i class="fa-solid fa-pen"></i>
+                        </button>
+                        <button class="delete-btn" aria-label="Delete task">
+                            <i class="fa-regular fa-trash-can"></i>
+                        </button>
+                    </div>
                 </div>
 
                 <div class="task-tags">
@@ -195,38 +202,101 @@ taskInput.addEventListener('keydown', function(event) {
 function handleTaskAction(event) {
     const deleteButton = event.target.closest('.delete-btn');
     const radioCircle = event.target.closest('.radio-circle');
+    const editButton = event.target.closest('.edit-btn');
 
-    // Delete task
+    // --- DELETE LOGIC ---
     if (deleteButton) {
         const taskCard = deleteButton.closest('.task-card');
-
+        
         if (!taskCard) return;
-
+        
         const taskId = taskCard.dataset.id;
-
         tasks = tasks.filter(task => task.id !== taskId);
-
+        
         saveTasks();
         renderTasks();
         return;
     }
 
-    // Complete / reactivate task
+    // --- COMPLETE LOGIC ---
     if (radioCircle) {
         const taskCard = radioCircle.closest('.task-card');
+        
+        if (!taskCard) return;
+        
+        const taskId = taskCard.dataset.id;
+        const task = tasks.find(task => task.id === taskId);
+        
+        if (!task) return;
+        
+        task.completed = !task.completed;
+        
+        saveTasks();
+        renderTasks();
+        return;
+    }
 
+    // --- EDIT LOGIC ---
+    if (editButton) {
+        const taskCard = editButton.closest('.task-card');
+        
         if (!taskCard) return;
 
         const taskId = taskCard.dataset.id;
+        const task = tasks.find(t => t.id === taskId);
+        
+        if (!task) return; // Validation: Ensure task exists before proceeding
 
-        const task = tasks.find(task => task.id === taskId);
+        const titleElement = taskCard.querySelector('.task-title');
 
-        if (!task) return;
+        // Prevent multiple input fields if clicked repeatedly
+        if (taskCard.classList.contains('editing')) return;
+        taskCard.classList.add('editing');
 
-        task.completed = !task.completed;
+        // Create input field dynamically
+        const input = document.createElement('input');
+        input.type = 'text';
+        input.className = 'edit-task-input';
+        input.value = task.title;
 
-        saveTasks();
-        renderTasks();
+        // Swap text with input
+        titleElement.style.display = 'none';
+        titleElement.parentNode.insertBefore(input, titleElement.nextSibling);
+        
+        input.focus();
+
+        let isResolved = false; // Flag to prevent Blur and Keydown double-execution
+
+        const finishEditing = (saveChanges) => {
+            if (isResolved) return; 
+            isResolved = true;
+
+            if (saveChanges) {
+                const newTitle = input.value.trim();
+                if (newTitle) {
+                    task.title = newTitle;
+                    saveTasks(); 
+                }
+            }
+            
+            renderTasks();
+        };
+
+        // Event: Keyboard handling (Enter to save, Escape to cancel)
+        input.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter') {
+                e.preventDefault();
+                finishEditing(true);
+            } else if (e.key === 'Escape') {
+                e.preventDefault();
+                finishEditing(false);
+            }
+        });
+
+        // Event: Clicking outside saves the task
+        input.addEventListener('blur', () => {
+            finishEditing(true);
+        });
     }
 }
 
