@@ -18,6 +18,20 @@ TaskFlow is a modern, responsive, and highly interactive To-Do list web applicat
 - **Vanilla JavaScript (ES6+):** State-driven data management, event delegation, DOM manipulation, and Local Storage integration.
 - **FontAwesome:** UI icons.
 
+## Project Case Study
+
+### 1. The Problem
+Many task management tools are overly complex, slow, or require accounts just to keep track of simple daily activities. Users need a fast, accessible, and straightforward interface to organize their day without worrying about losing their data when they close or refresh the browser.
+
+### 2. The Solution
+To solve this, I built TaskFlow, a lightweight and responsive To-Do application using vanilla HTML, CSS, and JavaScript. It utilizes a state-driven architecture where a central array acts as the single source of truth, and integrates with the browser's Local Storage to ensure task data persists securely across sessions. 
+
+### 3. Technical Challenges
+During development, I encountered an issue where dashboard statistics displayed incorrect numbers when tasks were searched or filtered, because the logic relied on counting visible HTML elements. I resolved this by decoupling the UI from the data, updating the function to calculate stats strictly from the main state array. Another challenge was unreliable filter tab matching based on button text, which I fixed by implementing robust `data-filter` attributes.
+
+### 4. Learning Outcomes
+This project significantly strengthened my understanding of state-driven UI and separating data logic from DOM manipulation before moving on to frameworks like React. I also gained practical experience in web accessibility (implementing ARIA attributes and keyboard navigation) and security (preventing XSS attacks by rendering inputs as text content).
+
 ## Links
 - **Live Demo:** https://siddiquibinish.github.io/TaskFlow
 - **Repository:** https://github.com/siddiquibinish/TaskFlow
